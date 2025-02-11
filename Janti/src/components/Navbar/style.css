@@ -1,0 +1,79 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  position: relative;
+  background-color: #d8d8d8;
+  width: 100vw;
+  height: 13rem;
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+  align-items: center;
+  position: sticky;
+  z-index: 1;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: #121212;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  user-select: none;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  color: white;
+}
+.logo{
+  pointer-events: none;
+  user-select: none;
+  grid-column: 6;
+  scale:2;
+}
+.menu-item1{
+  grid-column: 4;
+}
+.menu-item2{
+  grid-column: 5;
+}
+.menu-item3{
+  grid-column: 7;
+}
+.menu-item4{
+  grid-column: 8;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
