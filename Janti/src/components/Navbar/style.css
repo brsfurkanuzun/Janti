@@ -9,21 +9,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: translateX(-100%); /* Menü başlangıçta ekranın dışında */
+  transform: translateX(-100%);
+  /* Menü başlangıçta ekranın dışında */
   transition: transform 0.5s ease-in-out;
   z-index: 3;
 }
 
 .menu-overlay.open {
-  transform: translateX(0); /* Açıldığında ekranın içine giriyor */
+  transform: translateX(0);
+  /* Açıldığında ekranın içine giriyor */
 }
 
 .menu-nav {
   display: flex;
   flex-direction: column;
-  opacity: 0; /* Başlangıçta görünmez */
+  opacity: 0;
+  /* Başlangıçta görünmez */
   transition: opacity 0.3s ease-in-out;
-  transition-delay: 0.5s; /* Menü açıldığında öğeler yavaşça yüklenmeye başlar */
+  transition-delay: 0.5s;
+  /* Menü açıldığında öğeler yavaşça yüklenmeye başlar */
 }
 
 .menu-overlay.open .menu-nav {
@@ -37,15 +41,18 @@
   font-weight: 100;
   text-decoration: none;
   letter-spacing: .7px;
-  opacity: 0; /* Başlangıçta görünmez */
-  transform: translateY(10px); /* Hafif aşağıdan gelsin */
+  opacity: 0;
+  /* Başlangıçta görünmez */
+  transform: translateY(10px);
+  /* Hafif aşağıdan gelsin */
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* Menü öğeleri sırasıyla görünür olacak */
 .menu-overlay.open .menu-nav a {
   opacity: 1;
-  transform: translateY(0); /* Yukarıya doğru kayarak belirecek */
+  transform: translateY(0);
+  /* Yukarıya doğru kayarak belirecek */
 }
 
 .menu-nav a:nth-child(1) {
@@ -69,25 +76,23 @@
 }
 
 .nav-social-media {
-  opacity: 0; /* Başlangıçta görünmez */
+  opacity: 0;
   position: absolute;
   bottom: 0;
-  transform: translateY(10px); /* Hafif aşağıdan gelsin */
+  transform: translateY(10px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transition-delay: 1.8s; /* Menü öğeleri tamamlandığında sosyal medya öğeleri yüklenecek */
+  transition-delay: 1.8s;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* Sosyal medya öğeleri menü açıldığında görünür olacak */
 .menu-overlay.open .nav-social-media {
   opacity: 1;
-  transform: translateY(0); /* Yukarıya doğru kayarak belirecek */
+  transform: translateY(0);
+  /* Yukarıya doğru kayarak belirecek */
 }
 
-.nav-social-media a {
-  color: white;
-  margin: 10px;
-  font-size: 1.5rem;
-}
 
 .close-button {
   position: absolute;
@@ -115,6 +120,7 @@
 
 .nav-social-media a {
   color: white;
+  font-size: 14px;
   margin: 10px;
 }
 
@@ -144,8 +150,12 @@
 }
 
 .navbar {
+  position: sticky;
+  top: 0;
   width: 100vw;
   display: flex;
+  z-index: 5;
+
 }
 
 .top-item {
@@ -176,7 +186,6 @@
 }
 
 .top-item-two {
-  padding: 40px;
   justify-content: center;
 }
 
@@ -191,15 +200,16 @@
 .top-item-three a {
   position: relative;
   text-decoration: none;
-  color: black;
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 1.5px;
   font-weight: 400;
   cursor: pointer;
   display: inline-block;
-  padding-bottom: 5px; /* Çizginin tam alta oturması için */
+  padding-bottom: 5px;
+  /* Çizginin tam alta oturması için */
 }
+
 
 .top-item-one a::after,
 .top-item-three a::after {
@@ -207,14 +217,38 @@
   position: absolute;
   left: 50%;
   bottom: 0;
-  width: 0; /* Başlangıçta görünmez */
+  width: 0;
   height: 1px;
-  background-color: black;
-  transform: translateX(-50%); /* Çizgiyi tam ortalamak için */
+  transform: translateX(-50%);
   transition: width 0.3s ease-in-out;
+}
+
+.navbar-header-white a {
+  color: white;
+}
+
+.navbar-header-black a {
+  color: black;
+}
+
+.navbar-header-white a::after {
+  background-color: white;
+}
+
+.navbar-header-black a::after {
+  background-color: black;
 }
 
 .top-item-one a:hover::after,
 .top-item-three a:hover::after {
-  width: 34px; /* Hover olduğunda 34px genişleyecek */
+  width: 34px;
+  /* Hover olduğunda 34px genişleyecek */
+}
+
+.close-button:hover {
+  color: white;
+}
+
+.logo {
+  padding: 0;
 }
