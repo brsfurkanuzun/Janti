@@ -36,7 +36,8 @@
 }
 
 .swiper-slide:not(.swiper-slide-active) {
-  transform: scale(0.5); /* Kenardaki slaytları küçült */
+  transform: scale(0.5);
+  /* Kenardaki slaytları küçült */
 }
 
 .swiper-slide-active {
@@ -56,7 +57,7 @@
   border-radius: 12px;
 }
 
-img {
+.slider-img {
   width: 100%;
   height: 100%;
   object-fit: cover;

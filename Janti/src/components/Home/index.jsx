@@ -11,21 +11,21 @@ function Home() {
   return (
     <div className="home-container">
       <Swiper
-         effect="coverflow"
-         centeredSlides={true}
-         loop={true}
-         slidesPerView={3}
-         coverflowEffect={{
-           rotate: 0,
-           stretch: 0,
-           depth: 200,
-           modifier: 1.5,
-           slideShadows: false,
-         }}
-         spaceBetween={-500}
-         navigation={true}
-         modules={[Navigation, EffectCoverflow]}
-         className="mySwiper"
+        effect="coverflow"
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={3}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 200,
+          modifier: 1.5,
+          slideShadows: false,
+        }}
+        spaceBetween={-500}
+        navigation={true}
+        modules={[Navigation, EffectCoverflow]}
+        className="mySwiper"
       >
         <SwiperSlide>
           <div className="home-content">
@@ -37,10 +37,10 @@ function Home() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide><img src='wedding.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='wedding.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='wedding.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='wedding.jpg'/></SwiperSlide>
+        <SwiperSlide><img src='wedding.jpg' className='slider-img' /></SwiperSlide>
+        <SwiperSlide><img src='wedding.jpg' className='slider-img' /></SwiperSlide>
+        <SwiperSlide><img src='wedding.jpg' className='slider-img' /></SwiperSlide>
+        <SwiperSlide><img src='wedding.jpg' className='slider-img' /></SwiperSlide>
       </Swiper>
     </div>
   );

@@ -1,0 +1,20 @@
+menu-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-social-media {
+    max-width: 655px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justiify-content: space-between;
+}
+
+.nav-social-media a {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 1.5px;
+}

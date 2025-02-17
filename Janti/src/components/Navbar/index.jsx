@@ -1,22 +1,20 @@
-import React from "react";
-import logo from "/orjLogo.png";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Menu from "../Menu/index";
 import "./style.css";
 
-function Navbar() {
-  return (
-    <div class="topnav">
-      <div class="topnav-centered">
-        <a href="#home" class="active">
-          <img src={logo} href="#home" className="logo"  draggable="false" />
-        </a>
-      </div>
-        <a href="#about" className="menu-item1">Hakkımızda</a>
-        <a href="#services" className="menu-item2">Hizmetlerimiz</a>
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        <a href="#galery" className="menu-item3">Galeri</a>
-        <a href="#contact" className="menu-item4">İletişim</a>
+  return (
+    <div className="navbar">
+      <button className="menu-button" onClick={() => setMenuOpen(true)}>MENU</button>
+      <Link to="/" className="logo">
+        <img src="/orjLogo.png" alt="Logo" draggable="false" />
+      </Link>
+      <Menu isOpen={menuOpen} closeMenu={() => setMenuOpen(false)} />
     </div>
   );
-}
+};
 
 export default Navbar;

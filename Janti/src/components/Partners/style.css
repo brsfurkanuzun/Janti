@@ -1,0 +1,26 @@
+.partner {
+    filter: grayscale(100);
+    max-height: 64px;
+    max-width: 128px;
+    object-fit: scale-down;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+.partner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.rfm-child {
+    height: 64px;
+    width: 128px;
+    margin: 10px;
+}
+
+.rfm-child :hover {
+    filter: grayscale(0);
+}
