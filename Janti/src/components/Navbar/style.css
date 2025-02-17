@@ -1,7 +1,7 @@
 .menu-overlay {
   position: fixed;
   top: 0;
-  right: 100%;
+  left: 0;
   width: 100%;
   height: 100vh;
   background: #564E4E;
@@ -9,12 +9,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: left 0.3s ease-in-out;
+  transform: translateX(-100%); /* Menü başlangıçta ekranın dışında */
+  transition: transform 0.5s ease-in-out;
   z-index: 3;
 }
 
 .menu-overlay.open {
-  right: 0;
+  transform: translateX(0); /* Açıldığında ekranın içine giriyor */
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  opacity: 0; /* Başlangıçta görünmez */
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.5s; /* Menü açıldığında öğeler yavaşça yüklenmeye başlar */
+}
+
+.menu-overlay.open .menu-nav {
+  opacity: 1;
 }
 
 .menu-nav a {
@@ -24,7 +37,87 @@
   font-weight: 100;
   text-decoration: none;
   letter-spacing: .7px;
+  opacity: 0; /* Başlangıçta görünmez */
+  transform: translateY(10px); /* Hafif aşağıdan gelsin */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
+/* Menü öğeleri sırasıyla görünür olacak */
+.menu-overlay.open .menu-nav a {
+  opacity: 1;
+  transform: translateY(0); /* Yukarıya doğru kayarak belirecek */
+}
+
+.menu-nav a:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.menu-nav a:nth-child(2) {
+  transition-delay: 0.6s;
+}
+
+.menu-nav a:nth-child(3) {
+  transition-delay: 0.9s;
+}
+
+.menu-nav a:nth-child(4) {
+  transition-delay: 1.2s;
+}
+
+.menu-nav a:nth-child(5) {
+  transition-delay: 1.5s;
+}
+
+.nav-social-media {
+  opacity: 0; /* Başlangıçta görünmez */
+  position: absolute;
+  bottom: 0;
+  transform: translateY(10px); /* Hafif aşağıdan gelsin */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition-delay: 1.8s; /* Menü öğeleri tamamlandığında sosyal medya öğeleri yüklenecek */
+}
+
+/* Sosyal medya öğeleri menü açıldığında görünür olacak */
+.menu-overlay.open .nav-social-media {
+  opacity: 1;
+  transform: translateY(0); /* Yukarıya doğru kayarak belirecek */
+}
+
+.nav-social-media a {
+  color: white;
+  margin: 10px;
+  font-size: 1.5rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-social-media a {
+  color: white;
+  margin: 10px;
+}
+
 
 .close-button {
   position: absolute;
@@ -42,10 +135,86 @@
   border: none;
   color: black;
   font-size: 1.5rem;
-  cursor: pointer;
+  flex: 1;
 }
 
 .menu-nav {
   display: flex;
   flex-direction: column;
+}
+
+.navbar {
+  width: 100vw;
+  display: flex;
+}
+
+.top-item {
+  flex: 1;
+  display: flex;
+}
+
+.top-item a {
+  font-family: 'Montserrat', sans-serif;
+  color: #000;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.top-item img {
+  width: 126px;
+  top: 0;
+}
+
+.top-item-one {
+  position: relative;
+  padding: 40px;
+  justify-content: flex-start;
+  height: 22px;
+}
+
+.top-item-two {
+  padding: 40px;
+  justify-content: center;
+}
+
+.top-item-three {
+  position: relative;
+  padding: 40px;
+  justify-content: flex-end;
+  height: 22px;
+}
+
+.top-item-one a,
+.top-item-three a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+  cursor: pointer;
+  display: inline-block;
+  padding-bottom: 5px; /* Çizginin tam alta oturması için */
+}
+
+.top-item-one a::after,
+.top-item-three a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0; /* Başlangıçta görünmez */
+  height: 1px;
+  background-color: black;
+  transform: translateX(-50%); /* Çizgiyi tam ortalamak için */
+  transition: width 0.3s ease-in-out;
+}
+
+.top-item-one a:hover::after,
+.top-item-three a:hover::after {
+  width: 34px; /* Hover olduğunda 34px genişleyecek */
 }
